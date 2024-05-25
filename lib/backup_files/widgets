@@ -1,0 +1,69 @@
+
+class ActorItemsView extends StatefulWidget {
+  const ActorItemsView({
+    super.key,
+  });
+
+  @override
+  State<ActorItemsView> createState() => _ActorItemsViewState();
+}
+
+class _ActorItemsViewState extends State<ActorItemsView> {
+  final ActorApply actorApply = ActorApplyImpl();
+  List<ActorVo>? actorList = [];
+  late final List<ActorVo> actor;
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder<List<ActorVo>?>(
+        future: actorApply.getActor(1),
+        builder: (context, snapshot) {
+          ///Show loading circle when loading data
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(
+              child: LinearProgressIndicator(
+                color: Colors.amber,
+              ),
+            );
+          }
+
+          /// Show error
+          if (snapshot.hasError) {
+            if (kDebugMode) print("Error ===> ${snapshot.error}");
+            return const Center(
+              child: Icon(Icons.error_outline_outlined),
+            );
+          }
+
+          final List<ActorVo>? actorMovieList = snapshot.data?.take(2).toList();
+
+          return ListView.builder(
+              itemCount: actor.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  title: Text(actorMovieList![index].name.toString()),
+                );
+              });
+        });
+  }
+}
+
+class PopularMovieListPart extends StatelessWidget {
+  const PopularMovieListPart({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return const Padding(
+      padding: EdgeInsets.all(16.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          PopularMovieListTopBarTitles(),
+        ],
+      ),
+    );
+  }
+}
