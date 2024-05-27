@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/http.dart';
 
-import '../../../../constants/api_constants.dart';
-import '../../genre_response/genre_response.dart';
+import '../../../constants/api_constants.dart';
+import '../../response/genre_response/genre_response.dart';
 
 part 'genre_api.g.dart';
 
