@@ -14,9 +14,8 @@ class MovieDaoImpl extends MovieDao {
 
   @override
   void save(List<MovieVo> movies) {
-    /// For Loop using Dart recommended looping function.
     Map<int, MovieVo> movieMap = {
-      for (var movies in movies) movies.id ?? -1: movies,
+      for (var movie in movies) movie.id ?? -1: movie,
     };
     _getMovieBox().putAll(movieMap);
   }
