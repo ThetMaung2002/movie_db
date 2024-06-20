@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movie_db/constants/string.dart';
 import 'package:movie_db/page/home_page.dart';
+import 'package:movie_db/page/search_page.dart';
 import 'package:movie_db/widgets/ui/text_ui.dart';
 
 class Skeleton extends StatefulWidget {
@@ -40,7 +41,12 @@ class _SkeletonState extends State<Skeleton> {
         actions: [
           IconButton(
             onPressed: () {
-              showDevelopmentDialog(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => SearchPage(),
+                ),
+              );
             },
             icon: const Icon(Icons.search),
           ),
