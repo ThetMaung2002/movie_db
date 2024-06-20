@@ -101,7 +101,7 @@ class BannerMovieItemView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 300,
+      height: 240,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -335,6 +335,13 @@ class CheckMovieShowtimesCard extends StatelessWidget {
                       color: Colors.amber,
                     ),
                   ),
+                  // TextButton(
+                  //   style: TextButton.styleFrom(
+                  //     foregroundColor: Colors.amber,
+                  //   ),
+                  //   onPressed: () {},
+                  //   child: const TextUI(label: "See More"),
+                  // ),
                 ],
               ),
             ),
