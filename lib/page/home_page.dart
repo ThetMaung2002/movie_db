@@ -307,7 +307,7 @@ class CheckMovieShowtimesCard extends StatelessWidget {
         height: 160,
         decoration: BoxDecoration(
           color: Colors.grey[800],
-          borderRadius: BorderRadius.circular(4),
+          borderRadius: BorderRadius.circular(10),
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
